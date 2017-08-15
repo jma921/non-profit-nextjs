@@ -4,24 +4,20 @@ import { Container, Row, Col } from 'reactstrap';
 import axios from 'axios';
 
 class Index extends React.Component {
-  // static async getInitialProps(req) {
-  // return req
-  //   ? { userAgent: req.headers['user-agent'] }
-  //   : { userAgent: navigator.userAgent };
-  // const baseUrl = req ? `${req.protocol}://${req.headers.host}` : '';
-  // const res = await fetch(`${baseUrl}/starwars`);
-  // const json = await res.json();
-  // return { starwars: json };
-  // const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-  // const res = await fetch('/api/starwars');
-  // const data = await res.json();
-
-  // console.log(`Show data fetched. Count: ${data.length}`);
-
-  // return {
-  //   shows: data
-  // };
-  // }
+  static async getInitialProps({
+    req,
+    pathname,
+    query,
+    asPath,
+    res,
+    jsonPages,
+    err
+  }) {
+    console.log(res);
+    return req
+      ? { userAgent: req.headers['user-agent'] }
+      : { userAgent: navigator.userAgent };
+  }
   componentDidMount() {
     this.fetchData();
   }

@@ -78,7 +78,7 @@ router.get('/starwars', (req, res) => {
   axios
     .get('https://swapi.co/api/people/3')
     .then(response => {
-      console.log(response.data);
+      //   console.log(response.data);
       res.json(response.data);
     })
     .catch(err => res.json(err));
