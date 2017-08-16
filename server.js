@@ -75,10 +75,10 @@ app.prepare().then(() => {
   //   return app.render(req, res, '/artist', params);
   // });
 
-  // server.get('/album/:id', (req, res) => {
-  //   const params = route('/album/:id')(parse(req.url).pathname);
-  //   return app.render(req, res, '/album', params);
-  // });
+  server.get('/post/:id', (req, res) => {
+    const params = route('/post/:id')(parse(req.url).pathname);
+    return app.render(req, res, '/post', params);
+  });
 
   server.get('*', (req, res) => {
     return handle(req, res);
