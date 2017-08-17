@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import Link from 'next/link';
+import React, { Component } from "react";
+import Link from "next/link";
 
 class SmallPost extends Component {
   render() {
     console.log(this.props);
     const { title } = this.props.post.fields;
     const { id } = this.props.post.sys;
-    let url = '';
+    let url = "";
     if (this.props.post.fields.featuredImage) {
       url = this.props.post.fields.featuredImage.fields.file.url;
     }
@@ -20,8 +20,10 @@ class SmallPost extends Component {
 
     return (
       <div className="col-md-4">
-        <Link href="/post" as={`/post/${id}`} prefetch>
-          <img className="img-fluid rounded" src={url} alt="" />
+        <Link href={`/post?id=${id}`} as={`/post/${id}`}>
+          <a>
+            <img className="img-fluid rounded" src={url} alt="" />
+          </a>
         </Link>
         <h3>
           {title}

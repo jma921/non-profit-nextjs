@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import Layout from '../components/Layout';
-import SmallPost from '../components/SmallPost';
-import fetch from 'isomorphic-unfetch';
-import { Container, Row, Col, Button } from 'reactstrap';
-import axios from 'axios';
+import Link from "next/link";
+import Layout from "../components/Layout";
+import SmallPost from "../components/SmallPost";
+import fetch from "isomorphic-unfetch";
+import { Container, Row, Col, Button } from "reactstrap";
+import axios from "axios";
 
 class Index extends React.Component {
   static async getInitialProps({
@@ -16,7 +16,7 @@ class Index extends React.Component {
     err
   }) {
     return req
-      ? { userAgent: req.headers['user-agent'] }
+      ? { userAgent: req.headers["user-agent"] }
       : { userAgent: navigator.userAgent };
   }
   constructor(props) {
@@ -31,7 +31,7 @@ class Index extends React.Component {
   fetchData = () => {
     this.setState({ loading: true }, () => {
       axios
-        .get('/api/posts')
+        .get("/api/posts")
         .then(response => {
           const { items } = response.data;
           this.setState({
@@ -63,13 +63,13 @@ class Index extends React.Component {
           fluid
           style={{
             background: `url('/static/bg.jpg') no-repeat center center`,
-            backgroundSize: 'cover',
-            height: '90vh'
+            backgroundSize: "cover",
+            height: "90vh"
           }}
         >
           <Row
             className="align-items-center"
-            style={{ height: '100%', color: 'white' }}
+            style={{ height: "100%", color: "white" }}
           >
             <Col sm="12" md={{ size: 6, offset: 1 }}>
               <h1>Non profit organization</h1>
@@ -98,7 +98,7 @@ class Index extends React.Component {
               </p>
               <Link href="/about">
                 <a className="description-link">
-                  Learn More About Conservation International{' '}
+                  Learn More About Conservation International{" "}
                 </a>
               </Link>
             </div>
@@ -123,7 +123,7 @@ class Index extends React.Component {
                 the most, while making that information available to the
                 governments and businesses that need it.
               </p>
-              <Link href="/about">
+              <Link href="/about" prefetch>
                 <a className="about-section--link">iuhiuhiuhiuh</a>
               </Link>
             </div>
@@ -139,7 +139,7 @@ class Index extends React.Component {
                 the most, while making that information available to the
                 governments and businesses that need it.
               </p>
-              <Link href="/about">
+              <Link href="/about" prefetch>
                 <a className="about-section--link">iuhiuhiuhiuh</a>
               </Link>
             </div>
@@ -155,7 +155,7 @@ class Index extends React.Component {
                 the most, while making that information available to the
                 governments and businesses that need it.
               </p>
-              <Link href="/about">
+              <Link href="/about" prefetch>
                 <a className="about-section--link">iuhiuhiuhiuh</a>
               </Link>
             </div>
